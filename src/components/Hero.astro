@@ -1,0 +1,70 @@
+---
+interface Props {
+  status: string;
+  bio: string;
+  email: string;
+  cta: string;
+}
+
+const { status, bio, email, cta } = Astro.props;
+const currentYear = new Date().getFullYear();
+const nameParts = "Paul Recker".split(" ");
+---
+
+<section class="relative min-h-screen flex items-center">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 w-full">
+    <div class="grid grid-cols-12 min-h-[80vh] pt-24">
+      <div class="col-span-12 lg:col-span-1 flex items-start">
+        <div class="writing-vertical lg:py-8 animate-in delay-2">
+          <span class="font-mono text-xs tracking-widest uppercase text-muted">
+            {currentYear} — Developer
+          </span>
+        </div>
+      </div>
+
+      <div class="col-span-12 lg:col-span-7 flex flex-col justify-center py-12 lg:py-0">
+        <div class="space-y-8">
+          <div class="animate-in delay-1">
+            <div class="inline-flex items-center gap-3 px-4 py-2 border-hard surface">
+              <span class="w-2 h-2 bg-[var(--accent)] rounded-full animate-pulse" />
+              <span class="font-mono text-xs tracking-widest uppercase">
+                {status}
+              </span>
+            </div>
+          </div>
+
+          <div class="animate-in delay-2">
+            <h1 class="font-display font-bold text-[15vw] lg:text-[10vw] leading-[0.85] tracking-tight">
+              {nameParts.map((part, i) => (
+                <span class={i === nameParts.length - 1 ? "text-[var(--accent)]" : ""}>
+                  {part}
+                  {i < nameParts.length - 1 && <br />}
+                </span>
+              ))}
+            </h1>
+          </div>
+
+          <div class="max-w-md animate-in delay-3">
+            <p class="text-lg text-muted leading-relaxed">
+              {bio}
+            </p>
+          </div>
+
+          <div class="animate-in delay-4 flex flex-wrap gap-4">
+            <a href={`mailto:${email}`} class="btn-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+              <span>{cta}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"/>
+                <path d="m12 5 7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

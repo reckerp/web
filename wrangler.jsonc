@@ -1,0 +1,26 @@
+{
+  "main": "dist/_worker.js/index.js",
+  "name": "portfolio",
+  "compatibility_date": "2026-01-20",
+  "compatibility_flags": [
+    "nodejs_compat",
+    "global_fetch_strictly_public"
+  ],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "./dist",
+  },
+  "observability": {
+    "enabled": true,
+  },
+  "routes": [
+    {
+      "pattern": "paul.md",
+      "custom_domain": true,
+    },
+    {
+      "pattern": "www.paul.md",
+      "custom_domain": true,
+    },
+  ],
+}

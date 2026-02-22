@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "title": "Paul Recker — Software Engineer",
+    "description": "Software engineering student, working at Dash0",
+    "ogImage": "/og.png",
+    "url": "https://recker.io"
+  },
+  "hero": {
+    "status": "Making observability easy for every developer!",
+    "bio": "Computer Science student currently finishing my degree and working as a software engineering intern at Dash0."
+  },
+  "contact": {
+    "email": "paul@recker.io",
+    "cta": "Get in touch",
+    "socials": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/reckerp",
+        "handle": "@reckerp"
+      },
+      {
+        "name": "LinkedIn",
+        "url": "https://linkedin.com/in/reckerpaul",
+        "handle": "/in/reckerpaul"
+      }
+    ]
+  }
+}
