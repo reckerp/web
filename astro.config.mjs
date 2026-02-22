@@ -6,10 +6,12 @@ import sitemap from '@astrojs/sitemap';
 
 import cloudflare from '@astrojs/cloudflare';
 
+import mdx from '@astrojs/mdx';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://recker.io',
-  integrations: [sitemap()],
+  integrations: [sitemap(), mdx()],
 
   vite: {
     plugins: [tailwindcss()],

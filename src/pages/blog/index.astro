@@ -1,0 +1,78 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import { getReadingTime } from "../../content/config";
+
+const posts = (await getCollection("blog", ({ data }) => {
+	return import.meta.env.PROD ? data.draft !== true : true;
+})).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const formatDate = (date: Date) => {
+	return date.toLocaleDateString("en-US", {
+		year: "numeric",
+		month: "short",
+		day: "numeric",
+	});
+};
+---
+
+<Layout
+	title="Blog — Paul Recker"
+	description="Thoughts on software engineering, web development, and technology."
+	url="https://recker.io/blog"
+	ogImage="/og.png"
+>
+	<main class="pt-32 pb-24">
+		<div class="max-w-4xl mx-auto px-6 lg:px-12">
+			<header class="mb-12 animate-in">
+				<h1 class="font-display font-bold text-5xl lg:text-6xl leading-[0.9] tracking-tight mb-4">
+					Blog<span class="text-[var(--accent)]">.</span>
+				</h1>
+				<p class="text-muted">
+					Thoughts on software engineering, web development, and the tools I use to build things.
+				</p>
+			</header>
+
+			<div class="space-y-4">
+				{posts.map((post, i) => {
+					const readingTime = getReadingTime(post.body || "");
+					return (
+						<article 
+							class="animate-in surface border-hard card-interactive"
+							style={`animation-delay: ${i * 0.05}s`}
+						>
+							<a href={`/blog/${post.slug}`} class="block p-6">
+								<div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6">
+									<div class="sm:w-32 flex-shrink-0">
+										<time class="font-mono text-xs tracking-widest uppercase text-muted whitespace-nowrap">
+											{formatDate(post.data.pubDate)}
+										</time>
+									</div>
+									<div class="flex-grow">
+										<h2 class="font-display font-bold text-xl lg:text-2xl leading-tight group-hover:text-[var(--accent)] transition-colors mb-2">
+											{post.data.title}
+										</h2>
+										<p class="text-muted text-sm leading-relaxed">
+											{post.data.description}
+										</p>
+									</div>
+									<div class="sm:text-right flex-shrink-0">
+										<span class="inline-block font-mono text-xs tracking-widest uppercase text-muted whitespace-nowrap tag">
+											{readingTime} min
+										</span>
+									</div>
+								</div>
+							</a>
+						</article>
+					);
+				})}
+
+				{posts.length === 0 && (
+					<div class="py-20 text-center surface border-hard p-8 relative z-10">
+						<p class="text-muted">No posts yet. Check back soon!</p>
+					</div>
+				)}
+			</div>
+		</div>
+	</main>
+</Layout>
