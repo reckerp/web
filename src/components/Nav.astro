@@ -1,19 +1,21 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro";
+
+const currentPath = Astro.url.pathname;
 ---
 
 <nav class="fixed top-0 left-0 right-0 z-50">
   <div class="max-w-7xl mx-auto px-6 lg:px-12 py-4">
-    <div class="flex items-center justify-between border-hard-2 px-6 py-3 surface">
+    <div class="flex items-center justify-between border-hard-2 px-4 sm:px-6 py-3 surface">
       <a href="/" class="block hover:opacity-70 transition-opacity">
         <img src="/r-black.png" alt="Logo" class="h-8 w-auto logo-light" />
         <img src="/r-white.png" alt="Logo" class="h-8 w-auto logo-dark" />
       </a>
 
-      <div class="flex items-center gap-6">
+      <div class="flex items-center gap-3 sm:gap-6">
         <a
           href="/blog"
-          class="hidden sm:block font-mono text-xs uppercase tracking-widest hover:text-[var(--accent)] transition-colors"
+          class={`font-mono text-xs uppercase tracking-widest hover:text-[var(--accent)] transition-colors ${currentPath.startsWith('/blog') ? 'text-[var(--accent)]' : ''}`}
         >
           Blog
         </a>
