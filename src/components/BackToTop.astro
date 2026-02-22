@@ -1,0 +1,54 @@
+---
+---
+
+<button
+  id="back-to-top"
+  class="fixed bottom-8 right-8 z-50 group opacity-0 invisible transition-all duration-300 ease-out"
+  aria-label="Back to top"
+>
+  <div class="relative">
+    <div class="absolute inset-0 bg-[var(--accent)] translate-x-1 translate-y-1 transition-transform group-hover:translate-x-0 group-hover:translate-y-0"></div>
+    <div class="relative border-hard-2 border-[var(--fg)] bg-[var(--surface)] px-5 py-4 flex items-center gap-3 transition-all group-hover:-translate-x-0.5 group-hover:-translate-y-0.5">
+      <span class="font-mono text-xs tracking-widest uppercase text-muted group-hover:text-[var(--fg)] transition-colors">
+        Top
+      </span>
+      <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        width="16" 
+        height="16" 
+        viewBox="0 0 24 24" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-width="2" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        class="text-[var(--accent)] group-hover:text-[var(--fg)] group-hover:animate-bounce transition-colors"
+      >
+        <path d="m18 15-6-6-6 6"/>
+      </svg>
+    </div>
+  </div>
+</button>
+
+<script>
+  const btn = document.getElementById('back-to-top');
+  
+  function handleScroll() {
+    if (!btn) return;
+    
+    if (window.scrollY > 400) {
+      btn.classList.remove('opacity-0', 'invisible');
+      btn.classList.add('opacity-100', 'visible');
+    } else {
+      btn.classList.remove('opacity-100', 'visible');
+      btn.classList.add('opacity-0', 'invisible');
+    }
+  }
+  
+  btn?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
+</script>
