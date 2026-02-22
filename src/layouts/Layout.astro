@@ -6,9 +6,11 @@ interface Props {
   description: string;
   url: string;
   ogImage?: string;
+  noindex?: boolean;
 }
 
-const { title, description, url, ogImage } = Astro.props;
+const { title, description, url, ogImage, noindex = false } = Astro.props;
+const canonicalURL = new URL(url, Astro.site);
 ---
 
 <html lang="en">
@@ -16,15 +18,35 @@ const { title, description, url, ogImage } = Astro.props;
     <meta charset="utf-8" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="canonical" href={canonicalURL} />
+    
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="author" content="Paul Recker" />
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f8f7f4" media="(prefers-color-scheme: light)" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={url} />
-    {ogImage && <meta property="og:image" content={ogImage} />}
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:url" content={canonicalURL} />
+    {ogImage && <meta property="og:image" content={new URL(ogImage, Astro.site)} />}
+    <meta property="og:locale" content="en_US" />
+    
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Paul Recker",
+      "url": canonicalURL,
+      "logo": new URL("/r-black.png", Astro.site),
+      "jobTitle": "Software Engineer",
+      "description": description,
+      "sameAs": [
+        "https://github.com/reckerp",
+        "https://linkedin.com/in/reckerpaul"
+      ],
+    })} />
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+---
+
+<Layout
+  title="404 — Page Not Found | Paul Recker"
+  description="The page you're looking for doesn't exist."
+  url="/404"
+  noindex
+>
+  <Nav />
+  
+  <main class="min-h-screen flex items-center justify-center relative z-10">
+    <div class="text-center px-6">
+      <p class="font-mono text-xs uppercase tracking-widest text-[var(--muted)] mb-4">Error 404</p>
+      <h1 class="text-6xl sm:text-8xl font-bold font-display mb-6">404</h1>
+      <p class="text-xl text-[var(--muted)] mb-8">Page not found</p>
+      <a 
+        href="/" 
+        class="inline-block px-6 py-3 border border-[var(--border)] hover:bg-[var(--surface)] transition-colors"
+      >
+        Go back home
+      </a>
+    </div>
+  </main>
+</Layout>

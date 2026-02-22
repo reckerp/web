@@ -1,10 +1,4 @@
 {
-  "meta": {
-    "title": "Paul Recker — Software Engineer",
-    "description": "Software engineering student",
-    "ogImage": "/og.png",
-    "url": "https://recker.io"
-  },
   "hero": {
     "status": "Making observability easy for every developer",
     "bio": "Computer Science student currently finishing my degree and working as a software engineering intern at Dash0."
