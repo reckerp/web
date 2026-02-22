@@ -35,10 +35,10 @@ const iconMap: Record<string, string> = {
       </div>
 
       <div class="col-span-12 lg:col-span-8">
-        <div class="grid sm:grid-cols-2 gap-0 border-hard">
+        <div class="grid sm:grid-cols-2 gap-0">
           <a
             href={`mailto:${email}`}
-            class="group p-8 surface border-r border-b sm:border-b-0 border-hard card-interactive"
+            class="group p-8 surface border-r border-b border-hard card-interactive"
           >
             <div class="flex items-start justify-between mb-8">
               <div class="w-12 h-12 border-hard-2 flex items-center justify-center">
@@ -58,12 +58,12 @@ const iconMap: Record<string, string> = {
             </div>
           </a>
 
-          {socials.map((social) => (
+          {socials.map((social, index) => (
             <a
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              class="group p-8 surface border-hard card-interactive"
+              class={`group p-8 surface border-hard card-interactive ${index < socials.length - 1 ? 'border-b' : ''}`}
             >
               <div class="flex items-start justify-between mb-8">
                 <div class="w-12 h-12 border-hard-2 flex items-center justify-center" set:html={iconMap[social.name] || iconMap["GitHub"]} />
