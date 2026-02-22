@@ -1,0 +1,71 @@
+---
+interface WorkEntry {
+  title: string;
+  company: string;
+  date: string;
+  description: string;
+}
+
+interface Props {
+  entries: WorkEntry[];
+}
+
+const { entries } = Astro.props;
+---
+
+<section class="relative py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <div class="grid grid-cols-12 gap-6 lg:gap-8">
+      <div class="col-span-12 lg:col-span-4">
+        <div class="animate-in lg:sticky lg:top-24">
+          <h2 class="font-display font-bold text-5xl lg:text-6xl leading-none mb-4">
+            Work<br />History
+          </h2>
+          <p class="text-muted max-w-xs">
+            A timeline of my professional journey and the teams I've been part of.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-span-12 lg:col-span-8">
+        <div class="relative">
+          <div class="absolute left-[7px] lg:left-1/2 top-0 bottom-0 w-px bg-[var(--border)] lg:-translate-x-1/2"></div>
+          
+          <div class="space-y-6 lg:space-y-8">
+            {entries.map((entry, i) => (
+              <div class={`relative pl-8 lg:pl-0 lg:grid lg:grid-cols-2 lg:gap-8 ${i % 2 === 0 ? '' : ''}`}>
+                {i % 2 === 0 ? (
+                  <>
+                    <div class="lg:pr-8 animate-in" style={`animation-delay: ${i * 0.1}s`}>
+                      <div class="border-hard surface p-6 card-interactive lg:ml-auto lg:max-w-[calc(100%-2rem]">
+                        <div class="font-mono text-xs text-muted mb-3">{entry.date}</div>
+                        <h3 class="font-display font-bold text-xl mb-1">{entry.title}</h3>
+                        <div class="text-[var(--accent)] font-medium mb-3">{entry.company}</div>
+                        <p class="text-muted text-sm leading-relaxed">{entry.description}</p>
+                      </div>
+                    </div>
+                    <div></div>
+                  </>
+                ) : (
+                  <>
+                    <div></div>
+                    <div class="lg:pl-8 animate-in" style={`animation-delay: ${i * 0.1}s`}>
+                      <div class="border-hard surface p-6 card-interactive">
+                        <div class="font-mono text-xs text-muted mb-3">{entry.date}</div>
+                        <h3 class="font-display font-bold text-xl mb-1">{entry.title}</h3>
+                        <div class="text-[var(--accent)] font-medium mb-3">{entry.company}</div>
+                        <p class="text-muted text-sm leading-relaxed">{entry.description}</p>
+                      </div>
+                    </div>
+                  </>
+                )}
+                
+                <div class="absolute left-0 lg:left-1/2 top-6 w-3.5 h-3.5 rounded-full bg-[var(--accent)] border-2 border-[var(--fg)] -translate-x-1/2 z-10"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

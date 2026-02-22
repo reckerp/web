@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Nav from "../components/Nav.astro";
 import Hero from "../components/Hero.astro";
+import Work from "../components/Work.astro";
 import Contact from "../components/Contact.astro";
 import portfolio from "../data/portfolio.json";
 ---
@@ -21,6 +22,8 @@ import portfolio from "../data/portfolio.json";
       email={portfolio.contact.email}
       cta={portfolio.contact.cta}
     />
+    
+    <Work entries={portfolio.work} />
     
     <Contact
       email={portfolio.contact.email}
