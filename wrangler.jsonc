@@ -15,14 +15,6 @@
   },
   "routes": [
     {
-      "pattern": "paul.md",
-      "custom_domain": true,
-    },
-    {
-      "pattern": "www.paul.md",
-      "custom_domain": true,
-    },
-    {
       "pattern": "recker.io",
       "custom_domain": true,
     },
