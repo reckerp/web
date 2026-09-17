@@ -1,25 +1,25 @@
 {
   "hero": {
     "status": "Making observability easy for every developer",
-    "bio": "Computer Science student currently finishing my degree and working as a software engineering intern at Dash0."
+    "bio": "I'm a full-time product engineer at Dash0, working on Darkplane. I build software that helps engineering teams understand how they use AI coding tools."
   },
   "work": [
     {
       "title": "Product Engineer",
       "company": "Dash0",
-      "date": "Feb. 2026 — Present",
-      "description": "Started as an intern working on my practical bachelor's project. Starting July 2026 working full-time as a product engineer."
+      "date": "Feb. 2026 - Present",
+      "description": "As a product engineer on the Darkplane team, I build features that help engineering teams understand their use of AI coding tools, including adoption, cost, and productivity."
     },
     {
       "title": "Working Student",
       "company": "Mintano",
-      "date": "Sep. 2024 — Dec. 2025",
-      "description": "Led the full lifecycle of multiple cross-domain projects — from architecture to implementation — while coordinating code reviews and delivering customer-driven features. Drove team growth through knowledge-sharing sessions, Sprint facilitation, intern mentorship via pair-programming, and active contribution to architectural planning."
+      "date": "Sep. 2024 - Dec. 2025",
+      "description": "Led the full lifecycle of multiple cross-domain projects, from architecture to implementation, while coordinating code reviews and delivering customer-driven features. Drove team growth through knowledge-sharing sessions, Sprint facilitation, intern mentorship via pair-programming, and active contribution to architectural planning."
     },
     {
       "title": "Student Assistant",
       "company": "Fontys University of Applied Sciences",
-      "date": "Sep. 2023 — Aug. 2024",
+      "date": "Sep. 2023 - Aug. 2024",
       "description": "Assisted fellow students during practical hours by offering guidance, explanations, and resources, demonstrating leadership skills to motivate peers, and facilitated problem-solving discussions to enhance their comprehension of complex subjects while managing time effectively to accommodate everyone's needs."
     }
   ],
